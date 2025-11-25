@@ -1,0 +1,14 @@
+C:\Users\ACER\OneDrive\Desktop\Yenilenmiş C#\Backend_EFCore_API\D03-Karar Yapıları Ödevi\bin\Debug\net9.0\D03-Karar Yapıları Ödevi.exe
+C:\Users\ACER\OneDrive\Desktop\Yenilenmiş C#\Backend_EFCore_API\D03-Karar Yapıları Ödevi\bin\Debug\net9.0\D03-Karar Yapıları Ödevi.deps.json
+C:\Users\ACER\OneDrive\Desktop\Yenilenmiş C#\Backend_EFCore_API\D03-Karar Yapıları Ödevi\bin\Debug\net9.0\D03-Karar Yapıları Ödevi.runtimeconfig.json
+C:\Users\ACER\OneDrive\Desktop\Yenilenmiş C#\Backend_EFCore_API\D03-Karar Yapıları Ödevi\bin\Debug\net9.0\D03-Karar Yapıları Ödevi.dll
+C:\Users\ACER\OneDrive\Desktop\Yenilenmiş C#\Backend_EFCore_API\D03-Karar Yapıları Ödevi\bin\Debug\net9.0\D03-Karar Yapıları Ödevi.pdb
+C:\Users\ACER\OneDrive\Desktop\Yenilenmiş C#\Backend_EFCore_API\D03-Karar Yapıları Ödevi\obj\Debug\net9.0\D03-Karar Yapıları Ödevi.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ACER\OneDrive\Desktop\Yenilenmiş C#\Backend_EFCore_API\D03-Karar Yapıları Ödevi\obj\Debug\net9.0\D03-Karar Yapıları Ödevi.AssemblyInfoInputs.cache
+C:\Users\ACER\OneDrive\Desktop\Yenilenmiş C#\Backend_EFCore_API\D03-Karar Yapıları Ödevi\obj\Debug\net9.0\D03-Karar Yapıları Ödevi.AssemblyInfo.cs
+C:\Users\ACER\OneDrive\Desktop\Yenilenmiş C#\Backend_EFCore_API\D03-Karar Yapıları Ödevi\obj\Debug\net9.0\D03-Karar Yapıları Ödevi.csproj.CoreCompileInputs.cache
+C:\Users\ACER\OneDrive\Desktop\Yenilenmiş C#\Backend_EFCore_API\D03-Karar Yapıları Ödevi\obj\Debug\net9.0\D03-Karar Yapıları Ödevi.dll
+C:\Users\ACER\OneDrive\Desktop\Yenilenmiş C#\Backend_EFCore_API\D03-Karar Yapıları Ödevi\obj\Debug\net9.0\refint\D03-Karar Yapıları Ödevi.dll
+C:\Users\ACER\OneDrive\Desktop\Yenilenmiş C#\Backend_EFCore_API\D03-Karar Yapıları Ödevi\obj\Debug\net9.0\D03-Karar Yapıları Ödevi.pdb
+C:\Users\ACER\OneDrive\Desktop\Yenilenmiş C#\Backend_EFCore_API\D03-Karar Yapıları Ödevi\obj\Debug\net9.0\D03-Karar Yapıları Ödevi.genruntimeconfig.cache
+C:\Users\ACER\OneDrive\Desktop\Yenilenmiş C#\Backend_EFCore_API\D03-Karar Yapıları Ödevi\obj\Debug\net9.0\ref\D03-Karar Yapıları Ödevi.dll
