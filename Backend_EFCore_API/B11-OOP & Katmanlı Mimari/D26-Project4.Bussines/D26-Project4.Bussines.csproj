@@ -1,0 +1,15 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <RootNamespace>D26_Project4.Bussines</RootNamespace>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\D25-Project4.DataAccess\D25-Project4.DataAccess.csproj" />
+    <ProjectReference Include="..\D28-Project4.Entities\D28-Project4.Entities.csproj" />
+  </ItemGroup>
+
+</Project>
