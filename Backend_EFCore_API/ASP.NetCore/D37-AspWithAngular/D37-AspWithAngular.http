@@ -1,0 +1,6 @@
+@D37_AspWithAngular_HostAddress = http://localhost:5055
+
+GET {{D37_AspWithAngular_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

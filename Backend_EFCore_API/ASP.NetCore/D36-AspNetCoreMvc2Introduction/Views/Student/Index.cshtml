@@ -1,0 +1,23 @@
+﻿@using D36_AspNetCoreMvc2Introduction.Entities
+@model IEnumerable<Student>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <h2>Kayıtlı Öğrenciler</h2>
+    <ul>
+        @foreach (var item in Model)
+        {
+            <li>@item.FirstName @item.LastName</li>
+        }
+    </ul>
+</body>
+</html>
