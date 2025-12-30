@@ -1,0 +1,19 @@
+<h1 id="tableLabel">Müşteri Listesi</h1>
+
+<p *ngIf="!customers"><em>Yükleniyor... (Backend'in açık olduğundan emin ol!)</em></p>
+  <table class="table table-bordered table-striped mt-4 shadow-sm">
+  <thead class ="table-dark">
+    <tr>
+      <th>ID</th>
+      <th>Ad</th>
+      <th>Soyad</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let c of customers">
+      <td>{{ c.id }}</td>
+      <td>{{ c.firstName }}</td>
+      <td>{{ c.lastName }}</td>
+    </tr>
+  </tbody>
+</table>
