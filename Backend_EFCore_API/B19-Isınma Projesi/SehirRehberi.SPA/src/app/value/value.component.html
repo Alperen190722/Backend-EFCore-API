@@ -1,0 +1,17 @@
+<div *ngIf="values">
+  <h3>Kayıt Sayısı: {{values.length}}</h3>
+  <table border="1" *ngIf="values.length > 0">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>İsim</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let v of values">
+        <td>{{ v.id }}</td>
+        <td>{{ v.name }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
