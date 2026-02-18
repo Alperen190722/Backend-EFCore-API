@@ -1,0 +1,20 @@
+/* Editörün dış çerçevesini Bootstrap inputlarına benzetiyoruz */
+::ng-deep .NgxEditor__Wrapper {
+  width: 100%;
+  border: 1px solid #dee2e6 !important;
+  border-radius: 0.375rem;
+  background-color: #fff;
+}
+
+/* Yazı yazılan alanın yüksekliğini ayarla */
+::ng-deep .NgxEditor__Content {
+  min-height: 200px !important;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+/* Menü çubuğunu (Bold, Italic vs.) daha sade gösterir */
+::ng-deep .NgxEditor__MenuBar {
+  border-bottom: 1px solid #dee2e6 !important;
+  background-color: #f8f9fa !important;
+}
