@@ -1,0 +1,27 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <RootNamespace>D40_Abc.Northwind.MvcWebUI</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="9.0.12" />
+	  <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="9.0.12" />
+	  <PackageReference Include="Microsoft.AspNetCore.Authentication.Cookies" Version="2.3.9" />
+	  <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="9.0.12" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Abc.Core\Abc.Core.csproj" />
+    <ProjectReference Include="..\Abc.Northwind.Entities\Abc.Northwind.Entities.csproj" />
+    <ProjectReference Include="..\Abc.Nothwind.Bussines\Abc.Northwind.Bussines.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\" />
+  </ItemGroup>
+
+</Project>
