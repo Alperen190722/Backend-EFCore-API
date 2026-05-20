@@ -1,0 +1,79 @@
+<div class="management-wrapper">
+  <div class="side-panel">
+    <div class="panel-header">
+      <h3>🏢 Departmanlar</h3>
+      <div class="search-container">
+        <input type="text" [(ngModel)]="searchTerm" (input)="filterDepartments()" placeholder="Ara...">
+        <button class="add-main-btn" (click)="openDeptModal()" title="Yeni Departman">+</button>
+      </div>
+    </div>
+    
+    <div class="dept-list">
+      @for (dept of filteredDepartments(); track dept.Id) {
+        <div class="dept-item" [class.active]="selectedDeptId() === dept.Id" (click)="selectDepartment(dept.Id!)">
+          <div class="dept-content">
+            <span class="dept-name">{{ dept.Name }}</span>
+            <span class="dept-count">{{ dept.RoleNames?.length || 0 }} Rol</span>
+          </div>
+          <div class="dept-actions">
+            <button class="mini-btn edit" (click)="$event.stopPropagation(); editDept(dept)">✏️</button>
+            <button class="mini-btn delete" (click)="$event.stopPropagation(); deleteDept(dept.Id!)">🗑️</button>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+
+  <div class="main-content">
+    @if (selectedDeptId()) {
+      <div class="unified-management-card">
+        
+        <div class="content-header">
+          <div class="title-section">
+            <h2>🎭 {{ selectedDeptName() }}</h2>
+            <span class="badge">Departman Rolleri</span>
+          </div>
+          <button class="add-role-cta" (click)="openRoleModal()">
+            <span class="plus">+</span> Yeni Rol Tanımla
+          </button>
+        </div>
+
+        <div class="roles-list-container">
+          @for (role of selectedRoles(); track role.Id) {
+            <div class="role-row">
+              <div class="role-info">
+                <label class="input-label">ROL ADI</label>
+                <input [(ngModel)]="role.Name" class="inline-edit-name" placeholder="Örn: Senior Developer">
+              </div>
+
+              <div class="role-salaries">
+                <div class="salary-input">
+                  <label>MİN</label>
+                  <input type="number" [(ngModel)]="role.MinSalary" placeholder="0">
+                </div>
+                <div class="salary-input">
+                  <label>MAX</label>
+                  <input type="number" [(ngModel)]="role.MaxSalary" placeholder="0">
+                </div>
+              </div>
+
+              <div class="role-ops">
+                <button class="op-btn save" (click)="updateRole(role)" title="Güncelle">💾</button>
+                <button class="op-btn delete" (click)="deleteRole(role.Id!)" title="Sil">🗑️</button>
+              </div>
+            </div>
+          } @empty {
+            <div class="no-roles">
+              <p>Bu departmanda henüz bir rol tanımlanmamış</p>
+            </div>
+          }
+        </div>
+
+      </div> } @else {
+      <div class="empty-placeholder">
+        <div class="empty-icon">🏢</div>
+        <p>Yönetmek istediğiniz departmanı soldan seçin</p>
+      </div>
+    }
+  </div>
+</div>

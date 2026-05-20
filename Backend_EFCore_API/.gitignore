@@ -131,3 +131,8 @@ $RECYCLE.BIN/
 .DS_Store
 
 _NCrunch*
+
+# --- Skyline Empire - Özel Güvenlik Mührü ---
+appsettings.json
+.env
+node_modules/

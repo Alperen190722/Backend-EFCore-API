@@ -1,0 +1,29 @@
+<div class="payroll-container">
+  <div class="action-section">
+    <div class="icon-box">
+      <i class="fas" [ngClass]="summary?.pendingPayrolls === 0 ? 'fa-check-double text-success' : 'fa-coins'"></i>
+    </div>
+    
+    <h3>Bordro Yönetimi</h3>
+    
+    <p *ngIf="summary?.pendingPayrolls > 0" class="text-warning">
+      Ödenmeyi bekleyen <strong>{{summary.pendingPayrolls}}</strong> personel kaydı var.
+    </p>
+    <p *ngIf="summary?.pendingPayrolls === 0" class="text-success font-weight-bold">
+      ✅ Bu ayın tüm mali yükümlülükleri yerine getirilmiştir.
+    </p>
+
+<button class="btn-pay" 
+        (click)="executePayroll()" 
+        [disabled]="isLoading || (summary && summary.pendingPayrolls === 0)">
+  
+  <span *ngIf="!isLoading">
+    {{ summary?.pendingPayrolls === 0 ? 'Maaşlar Ödendi' : 'Tüm Maaşları Öde' }}
+  </span>
+
+  <span *ngIf="isLoading">
+    <i class="fas fa-spinner fa-spin"></i> İşleniyor...
+  </span>
+</button>
+  </div>
+</div>

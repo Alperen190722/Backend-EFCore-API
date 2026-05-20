@@ -1,0 +1,43 @@
+﻿services:
+  skyline-db:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    user: root
+    environment:
+      - ACCEPT_EULA=Y
+      - MSSQL_SA_PASSWORD=${DB_PASSWORD}  
+    ports:
+      - "51433:1433"
+    volumes:
+      - sql_data:/var/opt/mssql/data
+    networks:
+      - skyline-net  
+  
+  skyline-api:
+    networks:
+      - skyline-net
+    build:
+      context: "./" 
+      dockerfile: "D41-SkylinePayroll.Api/Dockerfile"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://+:80
+      - ConnectionStrings__DefaultConnection=Server=skyline-db;Database=SkylinePayrollDB;User ID=sa;Password=${DB_PASSWORD};TrustServerCertificate=True
+    depends_on:
+      - skyline-db
+    ports:
+      - "5000:80"
+
+  skyline-ui:
+    build:
+      context: "./SkylinePayroll.SPA"
+      dockerfile: "Dockerfile"
+    ports:
+      - "80:80"
+    depends_on:
+      - skyline-api
+
+volumes:
+  sql_data:
+networks:
+  skyline-net:
+    driver: bridge

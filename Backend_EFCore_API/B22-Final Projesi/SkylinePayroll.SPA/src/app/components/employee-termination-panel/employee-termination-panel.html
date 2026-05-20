@@ -1,0 +1,67 @@
+<div class="container mt-5"> 
+  <div *ngIf="loading" class="text-center">
+    <div class="spinner-border text-primary" role="status"></div>
+    <p>Bilgileriniz getiriliyor...</p>
+  </div>
+
+  <div class="row justify-content-center" *ngIf="!loading && detail">
+    <div class="col-md-8">
+      <div class="card shadow-lg border-0" *ngIf="detail.status == -1">
+        <div class="card-header bg-dark text-white p-3 text-center">
+          <h4 class="mb-0"><i class="fas fa-pen-nib mr-2"></i> İstifa Dilekçesi Sun</h4>
+        </div>
+        <div class="card-body p-4">
+          <textarea class="form-control" [(ngModel)]="resignationReason" rows="5" placeholder="İstifa nedeninizi yazınız..."></textarea>
+          <button class="btn btn-danger btn-block mt-4 shadow" (click)="onResign()" [disabled]="resignationReason.length < 10">
+            İstifa Talebini Gönder
+          </button>
+        </div>
+      </div>
+      <div class="card shadow-lg border-0 mb-4" *ngIf="detail.status == 1">
+          <div class="card-body text-center p-5">
+              <div class="display-4 text-info mb-3"><i class="fas fa-file-invoice"></i></div>
+              <h4 class="text-secondary font-weight-bold">İK Hesaplaması Bekleniyor</h4>
+              <p class="text-muted">Yönetim onayı alındı. İnsan Kaynakları birimi yasal haklarınızın hesaplamasını tamamladığında buradan onay verebileceksiniz.</p>
+          </div>
+      </div>
+      <div class="card shadow-lg border-0" *ngIf="detail.status == 2">
+        <div class="card-header bg-primary text-white p-3 text-center">
+          <h4 class="mb-0"><i class="fas fa-check-double mr-2"></i> Fesih Hesaplama ve Personel Onayı</h4>
+        </div>
+        <div class="card-body p-4">
+          <div class="alert alert-warning border-0 shadow-sm text-center">
+             Hesaplamaları onayladığınızda dosyanız ödeme için <b>Muhasebe</b> birimine devredilecektir.
+          </div>
+          <div class="list-group list-group-flush border rounded mb-4">
+            <div class="list-group-item d-flex justify-content-between align-items-center">
+              <span class="text-muted font-weight-bold">Toplam Hak Ediş:</span>
+              <span class="h4 mb-0 text-success font-weight-bold">{{ detail.calculatedAmount | currency:'TRY' }}</span>
+            </div>
+            <div class="list-group-item d-flex justify-content-between align-items-center">
+              <span class="text-muted font-weight-bold">IBAN:</span>
+              <span class="text-primary font-weight-bold">{{ detail.iban }}</span>
+            </div>
+          </div>
+          <button class="btn btn-success btn-lg btn-block py-3 shadow" (click)="onApprove()" [disabled]="isProcessing">
+            <i class="fas fa-signature mr-2"></i> Hesaplamayı Kabul Ediyorum
+          </button>
+        </div>
+      </div>
+      <div class="card shadow-lg border-0 mb-4" *ngIf="detail.status == 3">
+          <div class="card-body text-center p-5">
+              <div class="display-4 text-warning mb-3"><i class="fas fa-university"></i></div>
+              <h4 class="text-secondary font-weight-bold">Muhasebe Onayı Bekleniyor</h4>
+              <p class="text-muted">Hesaplamaları kabul ettiniz. Dosyanız ödeme sırasına alınmak üzere Muhasebe birimine iletildi.</p>
+          </div>
+      </div>
+      <div class="card shadow-lg border-0 bg-light" *ngIf="detail.status == 4">
+          <div class="card-body text-center p-5">
+              <div class="display-4 text-success mb-3"><i class="fas fa-check-circle"></i></div>
+              <h4 class="text-secondary font-weight-bold">Süreç Tamamlandı</h4>
+              <p class="text-muted">Ödemeniz gerçekleştirilmiş ve tüm işlemleriniz başarıyla sonuçlandırılmıştır.</p>
+          </div>
+      </div>
+
+    </div>
+  </div>
+</div>

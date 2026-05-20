@@ -1,0 +1,98 @@
+<div class="auth-container">
+  <div class="auth-card">
+    <h2>Personel Kayıt <span class="highlight">Paneli</span></h2>
+    <p class="subtitle">Personel yönetiminde yeni bir dönem başliyor.</p>
+
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label>Ad</label>
+        <input type="text" formControlName="firstName" placeholder="Örn: Alperen ">
+        <small class="error" *ngIf="registerForm.get('firstName')?.touched && registerForm.get('firstName')?.invalid">
+          Lütfen geçerli bir isim giriniz.
+        </small>
+      </div>
+
+      <div class="form-group">
+        <label>Soyad</label>
+        <input type="text" formControlName="lastName" placeholder="Örn: Pişkin ">
+        <small class="error" *ngIf="registerForm.get('lastName')?.touched && registerForm.get('lastName')?.invalid">
+          Lütfen geçerli bir soyadi giriniz.
+        </small>
+      </div>
+
+      <div class="row">
+  <div class="col-md-6 mb-3">
+    <label>TC Kimlik No</label>
+    <input type="text" class="form-control" formControlName="identityNumber" placeholder="11 Haneli">
+  </div>
+  <div class="col-md-6 mb-3">
+    <label>Telefon</label>
+    <input type="text" class="form-control" formControlName="phoneNumber" placeholder="05xx xxx xx xx">
+  </div>
+</div>
+
+      <div class="form-group">
+        <label>E-posta Adresi</label>
+        <input type="email" formControlName="email" placeholder="alperen@1.dev">
+      </div>
+      <div class="mb-3">
+  <label>Maaş Bilgisi</label>
+  <input type="number" class="form-control" formControlName="salary">
+  
+  <small *ngIf="selectedRole" class="text-info mt-1 d-block">
+    💡 Seçilen rol için maaş aralığı: 
+    <strong>{{ selectedRole.MinSalary }} TL - {{ selectedRole.MaxSalary }} TL</strong>
+  </small>
+</div>
+
+<div class="col-md-6 mb-3">
+  <label style="font-weight: 600; color: #333;">Cinsiyet</label>
+  <select class="form-control" formControlName="gender" 
+          style="color: #000 !important; background-color: #fff !important; font-weight: 500; border: 1px solid #ced4da;">
+    <option value="" disabled selected>-- Seçiniz --</option>
+    <option value="Male" style="color: #000;">Erkek</option>
+    <option value="Female" style="color: #000;">Kadın</option>
+  </select>
+</div>
+
+      <div class="form-group">
+        <label>Şifre</label>
+        <input type="password" formControlName="password" placeholder="••••••••">
+      </div>
+
+<select (change)="onDepartmentChange($event)" 
+        class="form-control" 
+        style="color: #333 !important; background-color: #fff !important;" 
+        formControlName="departmentId">
+  <option value="" style="color: #333;">Departman Seçiniz</option>
+  <option *ngFor="let dept of departments" [value]="dept.Id" style="color: #333;">
+    {{ dept.Name }}
+  </option>
+</select>
+
+<select class="form-control" formControlName="roleId" 
+(change)="onRoleChange($event)"
+        style="color: #212529 !important; background-color: #ffffff !important; font-weight: 500;">
+  <option value="" disabled selected>-- Rol Seçiniz --</option>
+  <option *ngFor="let role of roles" [value]="role.Id" style="color: #000;">
+    {{ role.Name }}
+  </option>
+</select>
+
+<div class="mb-3">
+  <label>IBAN Adresi</label>
+  <input 
+    type="text" 
+    formControlName="iban" 
+    class="form-control" 
+    placeholder="TR00 0000...">
+</div>
+
+      <button type="submit" [disabled]="registerForm.invalid" class="btn-submit">
+        Hesabimi Oluştur
+      </button>
+    </form>
+
+    <p class="footer-text">Zaten bir hesabınız var mı? <a routerLink="/login">Giriş Yap</a></p>
+  </div>
+</div>

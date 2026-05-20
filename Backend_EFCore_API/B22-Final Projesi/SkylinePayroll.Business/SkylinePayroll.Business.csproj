@@ -1,0 +1,14 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SkylinePayroll.Core\SkylinePayroll.Core.csproj" />
+    <ProjectReference Include="..\SkylinePayroll.Data\SkylinePayroll.Data.csproj" />
+  </ItemGroup>
+
+</Project>

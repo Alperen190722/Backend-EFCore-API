@@ -1,0 +1,56 @@
+.custom-table {
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.custom-table thead {
+    background-color: #343a40;
+    color: white;
+}
+
+.iban-code {
+    background-color: #f8f9fa;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    color: #e83e8c;
+}
+
+.amount-text {
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+.custom-table {
+  transition: all 0.3s ease;
+  
+  tbody tr {
+    transition: background-color 0.2s ease;
+    &:hover {
+      background-color: rgba(40, 167, 69, 0.05); 
+    }
+  }
+}
+
+.btn-outline-success {
+  border-width: 2px;
+  font-weight: 600;
+  border-radius: 20px; 
+  transition: all 0.3s;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(40, 167, 69, 0.2);
+  }
+}
+
+.badge-info {
+background-color: #17a2b8 !important;
+    color: white !important; 
+    font-weight: 600;
+    padding: 6px 12px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}

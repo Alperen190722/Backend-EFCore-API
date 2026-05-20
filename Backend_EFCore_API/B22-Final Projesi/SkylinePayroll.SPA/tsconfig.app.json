@@ -1,0 +1,21 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "outDir": "./out-tsc/app",
+    "types": [],
+    "rootDir": "src" 
+  },
+  "files": [
+    "src/main.ts",
+    "src/main.server.ts", // 👈 BU ŞART
+    "src/server.ts"        // 👈 BU DA ŞART
+  ],
+  "include": [
+    "src/**/*.d.ts",
+    "src/**/*.ts"        // 👈 BURAYI GENİŞLETİYORUZ (Tüm TS'leri gör)
+  ],
+  "exclude": [
+    "src/test.ts",
+    "src/**/*.spec.ts"
+  ]
+}

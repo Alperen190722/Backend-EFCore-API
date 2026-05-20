@@ -1,0 +1,116 @@
+<div class="management-container" *ngIf="true">
+  <h2>Skyline Empire - Personel Harekat Merkezi</h2>
+
+  <div *ngIf="loading" class="spinner-container">
+    <div class="spinner"></div> Veriler mühürleniyor...
+  </div>
+
+  <table class="skyline-table" *ngIf="!loading">
+    <thead>
+      <tr>
+        <th>PERSONEL ADI</th>
+        <th>DEPARTMAN</th>
+        <th>ROL</th>
+        <th>MAAŞ</th>
+        <th>DURUM</th>
+        <th>AKSİYON</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let emp of employees" [class.selected]="selectedEmployee?.Id === emp.Id">
+        <td>{{ emp.FullName }}</td>
+        <td>{{ emp.DepartmentName }}</td>
+        <td><span class="role-badge">{{ emp.RoleName || 'Belirsiz' }}</span></td>
+        <td>{{ emp.SalaryDisplay || '0 TL' }}</td>
+        <td>
+          <span [class]="getStatusClass(emp.Status)">
+            {{ getStatusLabel(emp.Status) }}
+          </span>
+        </td>
+        <td>
+          <button class="btn-manage" *ngIf="toNum(emp.Status) === 1" (click)="selectEmployee(emp)">
+            <i class="fas fa-user-cog"></i> Yönet
+          </button>
+
+<button class="btn-approve-resignation" 
+        *ngIf="toNum(emp.Status) === 4" 
+        (click)="onApproveResignation(emp)">
+  <i class="fas fa-check-circle"></i> İstifayı Onayla
+</button>
+
+          <span *ngIf="toNum(emp.Status) === 3" class="text-muted small">
+            <i class="fas fa-archive"></i> İlişik Kesildi
+          </span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="resignation-card-footer" *ngIf="!loading">
+    <div class="info-side">
+      <h5>Kendi İstifa Sürecimi Başlat</h5>
+      <small>Görevden ayrılmak için gerekçenizi mühürleyin.</small>
+    </div>
+    <div class="action-side">
+      <input 
+        type="text" 
+        [(ngModel)]="resignationReason" 
+        placeholder="Ayrılma nedeninizi buraya detaylandırın..."
+        class="skyline-input"> 
+      <button 
+        (click)="onSubmitMyResignation()" 
+        class="btn-submit-resignation"
+        [disabled]="!resignationReason">
+        <i class="fas fa-paper-plane"></i> İstifamı Sun
+      </button>
+    </div>
+  </div>
+
+  <div *ngIf="selectedEmployee" class="management-drawer">
+    <div class="drawer-header">
+      <h3>Operasyon Merkezi: {{ selectedEmployee.FullName }}</h3>
+      <button (click)="selectedEmployee = null" class="btn-close">X</button>
+    </div>
+
+    <div class="drawer-body">
+      <div class="edit-grid">
+        <div class="input-group">
+          <label><i class="fas fa-building"></i> Departman</label>
+          <select class="skyline-select" 
+                  [(ngModel)]="selectedEmployee.DepartmentId" 
+                  (change)="onDepartmentChange(selectedEmployee.DepartmentId)"> 
+            <option *ngFor="let d of departments" [value]="d.Id">{{ d.Name }}</option>
+          </select>
+        </div>
+
+        <div class="input-group">
+          <label><i class="fas fa-user-tag"></i> Rol / Pozisyon</label>
+          <select class="skyline-select" [(ngModel)]="selectedEmployee.RoleId">
+            <option *ngFor="let r of roles" [value]="r.Id">{{r.Name}}</option>
+          </select>
+        </div>
+
+        <div class="input-group">
+          <label><i class="fas fa-lira-sign"></i> Yeni Maaş (TL)</label>
+          <input type="number" class="skyline-input" [(ngModel)]="selectedEmployee.Salary" 
+                 [class.is-invalid]="selectedRoleRange && (selectedEmployee.Salary < selectedRoleRange.min || selectedEmployee.Salary > selectedRoleRange.max)">
+          
+          <div class="salary-range-info mt-2" *ngIf="selectedRoleRange">
+            <small class="barem-badge" [ngClass]="(selectedEmployee.Salary >= selectedRoleRange.min && selectedEmployee.Salary <= selectedRoleRange.max) ? 'success' : 'danger'">
+              Barem: {{selectedRoleRange.min | number}} - {{selectedRoleRange.max | number}} TL
+            </small>
+          </div>
+        </div>
+      </div>
+
+      <div class="action-buttons">
+        <button class="btn-promote" (click)="onPromote()">
+          🚀 Değişiklikleri Mühürle & Duyur
+        </button>
+        <button class="btn-terminate" (click)="onTerminate()">
+          🚨 İlişik Kes
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

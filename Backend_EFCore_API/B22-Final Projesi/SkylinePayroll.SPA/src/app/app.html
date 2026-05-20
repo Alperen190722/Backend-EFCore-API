@@ -1,0 +1,13 @@
+<div class="flex h-screen bg-black overflow-hidden font-sans">
+  <app-sidebar></app-sidebar>
+
+  <div class="flex-1 flex flex-col overflow-hidden">
+    <app-navbar></app-navbar>
+
+    <main class="flex-1 overflow-y-auto bg-black">
+      <div class="p-8">
+        <router-outlet></router-outlet>
+      </div>
+    </main>
+  </div>
+</div>

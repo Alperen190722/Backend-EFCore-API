@@ -1,0 +1,118 @@
+
+
+.container {
+  max-width: 900px;
+  min-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.card {
+  border-radius: 15px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: translateY(-5px); 
+  }
+
+  .card-header {
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%); 
+    border-bottom: none;
+    
+    h4 {
+      letter-spacing: 1px;
+      font-weight: 600;
+    }
+  }
+
+  .list-group-item {
+    border-left: none;
+    border-right: none;
+    background-color: transparent;
+    transition: background-color 0.2s;
+
+    &:hover {
+      background-color: #f8f9fa;
+    }
+
+    .text-success {
+      color: #28a745 !important;
+      text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.05);
+    }
+  }
+}
+
+.alert-warning {
+  background-color: #fff3cd;
+  border-left: 5px solid #ffc107; 
+  color: #856404;
+}
+
+.btn-success {
+  background: linear-gradient(135deg, #28a745 0%, #218838 100%);
+  border: none;
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: all 0.3s;
+
+  &:hover {
+    background: linear-gradient(135deg, #218838 0%, #1e7e34 100%);
+    box-shadow: 0 5px 15px rgba(40, 167, 69, 0.4);
+    transform: scale(1.01);
+  }
+
+  &:active {
+    transform: scale(0.98);
+  }
+}
+
+.display-1 {
+  font-size: 6rem;
+  color: #e9ecef;
+  animation: fadeIn 1s ease-in-out;
+}
+
+.resignation-card {
+  .card-header {
+    background: linear-gradient(135deg, #2c3e50 0%, #000000 100%) !important;
+  }
+
+  textarea {
+    border-radius: 10px;
+    border: 1px solid #dee2e6;
+    resize: none;
+    &:focus {
+      border-color: #dc3545;
+      box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
+    }
+  }
+}
+
+.btn-danger {
+  background: linear-gradient(135deg, #dc3545 0%, #c82333 100%);
+  border: none;
+  &:hover {
+    transform: scale(1.02);
+    box-shadow: 0 5px 15px rgba(220, 53, 69, 0.4);
+  }
+}
+
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+
+@media (max-width: 768px) {
+  .h4 {
+    font-size: 1.2rem;
+  }
+  .btn-lg {
+    font-size: 1rem;
+    padding: 1rem;
+  }
+}

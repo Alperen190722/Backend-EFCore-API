@@ -1,0 +1,77 @@
+<div class="h-screen w-64 bg-[#0a0a0a] border-r border-blue-900/20 flex flex-col p-6 font-sans">
+  
+  <div class="mb-10 px-3">
+    <h1 class="text-blue-500 font-black tracking-tighter text-xl">SKYLINE <span class="text-gray-600 font-light">PAYROLL</span></h1>
+    <div class="h-[1px] w-full bg-gradient-to-r from-blue-900/50 to-transparent mt-2"></div>
+  </div>
+
+  <div class="flex-1 space-y-2 overflow-y-auto custom-scrollbar">
+    
+    <a routerLink="/dashboard" routerLinkActive="bg-blue-900/20 text-blue-400 border-l-2 border-blue-500" 
+       class="flex items-center p-3 text-gray-400 hover:text-blue-400 hover:bg-blue-900/10 rounded-lg transition-all duration-300 group">
+      <span class="font-medium uppercase tracking-wider text-[10px]">DASHBOARD</span>
+    </a>
+
+    <a routerLink="/payroll" routerLinkActive="bg-blue-900/20 text-blue-400 border-l-2 border-blue-500" 
+       class="flex items-center p-3 text-gray-400 hover:text-blue-400 hover:bg-blue-900/10 rounded-lg transition-all duration-300 group">
+      <span class="font-medium uppercase tracking-wider text-[10px]">PAYROLL SYSTEM</span>
+    </a>
+
+
+      <a routerLink="/payout" routerLinkActive="bg-blue-900/20 text-blue-400 border-l-2 border-blue-500" 
+         class="flex items-center p-3 text-gray-400 hover:text-blue-400 hover:bg-blue-900/10 rounded-lg transition-all duration-300 group">
+        <span class="font-medium uppercase tracking-wider text-[10px]">PAYOUT CONTROL</span>
+      </a>
+
+
+      <a routerLink="/hr-panel" routerLinkActive="bg-blue-900/20 text-blue-400 border-l-2 border-blue-500" 
+         class="flex items-center p-3 text-gray-400 hover:text-blue-400 hover:bg-blue-900/10 rounded-lg transition-all duration-300 group">
+        <span class="font-medium uppercase tracking-wider text-[10px]">HR OPERATIONS</span>
+      </a>
+
+    <a routerLink="/employee-panel" routerLinkActive="bg-blue-900/20 text-blue-400 border-l-2 border-blue-500" 
+       class="flex items-center p-3 text-red-900/60 hover:text-red-500 hover:bg-red-900/10 rounded-lg transition-all duration-300">
+      <span class="text-[10px] font-black tracking-widest uppercase text-red-500">Termination</span>
+    </a>
+
+    
+        <a routerLink="/register" routerLinkActive="bg-blue-900/20 text-blue-400 border-l-2 border-blue-500" 
+           class="flex items-center p-3 text-gray-400 hover:text-blue-400 hover:bg-blue-900/10 rounded-lg transition-all duration-300">
+          <span class="text-[10px] font-black tracking-widest uppercase">Register Employee</span>
+        </a>
+
+    <ng-container *ngIf="(authStatus$ | async) !== null">
+      
+      <div *ngIf="userDepartment && (userDepartment.toLowerCase() === 'management')" class="pt-4 space-y-2 border-t border-blue-900/10 mt-4">
+        <div class="px-3 pb-2">
+          <span class="text-[9px] text-gray-600 font-bold tracking-[0.2em] uppercase">Admin Level</span>
+        </div>
+
+        <a routerLink="/management" routerLinkActive="bg-blue-900/20 text-blue-400 border-l-2 border-blue-500" 
+           class="flex items-center p-3 text-gray-400 hover:text-blue-400 hover:bg-blue-900/10 rounded-lg transition-all duration-300">
+          <span class="text-[10px] font-black tracking-widest uppercase">Management</span>
+        </a>
+
+        <a routerLink="/department-role-management" routerLinkActive="bg-blue-900/20 text-blue-400 border-l-2 border-blue-500" 
+           class="flex items-center p-3 text-gray-400 hover:text-blue-400 hover:bg-blue-900/10 rounded-lg transition-all duration-300">
+          <span class="text-[10px] font-black tracking-widest uppercase">Role Matrix</span>
+        </a>
+      </div>
+    </ng-container>
+
+  </div>
+
+  <div class="mt-auto border-t border-gray-800 pt-6">
+    <div class="flex items-center justify-between mb-4">
+      <div class="flex items-center space-x-2">
+        <div class="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse"></div>
+        <span class="text-[9px] text-gray-500 uppercase tracking-widest">System Active</span>
+      </div>
+      <span class="text-[8px] text-gray-700">v1.0.4</span>
+    </div>
+    
+    <div class="p-3 bg-blue-900/5 rounded-lg border border-blue-900/10">
+        <p class="text-[9px] text-gray-500 leading-tight">Skyline Payroll Corp. <br> Security Protocol 22-A</p>
+    </div>
+  </div>
+</div>

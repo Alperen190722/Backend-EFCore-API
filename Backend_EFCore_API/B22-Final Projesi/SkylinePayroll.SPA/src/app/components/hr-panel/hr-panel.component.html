@@ -1,0 +1,53 @@
+<div class="card shadow-sm">
+  <div class="card-header bg-primary text-white">
+    <h5 class="mb-0"><i class="fas fa-users-cog me-2"></i> İK İşlem Bekleyen Personel</h5>
+  </div>
+  <div class="card-body">
+    <div *ngIf="loading" class="text-center my-4">
+      <div class="spinner-border text-primary"></div>
+      <p>Lojistik veriler yükleniyor...</p>
+    </div>
+
+    <table *ngIf="!loading" class="table table-hover align-middle">
+      <thead class="table-light">
+        <tr>
+          <th>Personel</th>
+          <th>IBAN</th>
+          <th>Hesaplanan Tutar</th>
+          <th>Durum</th>
+          <th class="text-center">İşlem</th>
+        </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let emp of employees">
+  <td><strong>{{ emp?.EmployeeName }}</strong></td>
+  <td>{{ emp?.Iban || 'IBAN Girilmemiş' }}</td>
+  <td>
+    <span class="badge bg-success">
+      {{ (emp?.TotalAmount || 0) | currency:'TRY':'symbol':'1.2-2' }}
+    </span>
+  </td>
+  <td>
+    <span class="badge rounded-pill bg-warning text-dark">
+      {{ emp?.Status }}
+    </span>
+  </td>
+  <td class="text-center">
+<button 
+  class="btn btn-sm btn-outline-success" 
+  (click)="approveHR(emp); $event.stopPropagation()" 
+  [disabled]="emp.isProcessing">
+  <i class="fas fa-check-circle"></i> 
+  {{ emp.isProcessing ? 'İşleniyor...' : 'Onayla' }}
+</button>
+  </td>
+        </tr>
+        <tr *ngIf="employees.length === 0">
+          <td colspan="5" class="text-center text-muted py-4">
+            İşlem bekleyen personel bulunamadı!
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

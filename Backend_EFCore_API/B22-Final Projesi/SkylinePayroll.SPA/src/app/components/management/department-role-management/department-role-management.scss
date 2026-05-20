@@ -1,0 +1,115 @@
+.management-wrapper {
+  display: flex;
+  height: calc(100vh - 80px); 
+  background: white;          
+  padding: 0;                 
+  gap: 0;                     
+  color: #2d3436;
+}
+
+
+input {
+  color: #1a1c23 !important;
+  background-color: #ffffff !important;
+  border: 1px solid #cbd5e1 !important;
+  padding: 10px !important;
+  width: 100%;
+  box-sizing: border-box;
+  border-radius: 6px;
+  font-weight: 500;
+
+  &::placeholder {
+    color: #9ca3af;
+  }
+}
+
+
+.side-panel {
+  width: 320px;
+  background: #f8f9fa;        
+  border-right: 1px solid #e5e7eb; 
+  height: 100%;
+  border-radius: 0;           
+}
+
+
+.main-content {
+  flex: 1;
+  background: white;          
+  padding: 40px;              
+  border-radius: 0;           
+  box-shadow: none;           
+  border: none;              
+  overflow-y: auto;
+}
+
+
+.unified-management-card {
+  height: auto;
+  min-height: fit-content;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.role-row {
+  background: white;          
+  border: none;               
+  border-bottom: 1px solid #f0f0f0; 
+  border-left: 4px solid #2563eb; 
+  margin-bottom: 0;           
+  padding: 25px 15px;
+  border-radius: 0;           
+
+  &:hover {
+    background: #fcfcfc;      
+  }
+}
+
+
+.role-salaries {
+  display: flex;
+  gap: 15px;
+
+  .salary-input {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+
+    label {
+      font-size: 10px;
+      font-weight: bold;
+      color: #6b7280;
+    }
+
+    input {
+      width: 120px !important; 
+    }
+  }
+}
+
+.badge {
+  background: #e0e7ff;
+  color: #4338ca;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: bold;
+  display: inline-block;
+  margin-left: 10px;
+}
+
+
+.empty-placeholder {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #9ca3af;
+
+  .empty-icon {
+    font-size: 50px;
+    margin-bottom: 10px;
+  }
+}
