@@ -22,5 +22,3 @@ Aslında bir şirket otomasyonu prototipi denebilir evet bunlarda panel içinde 
 6.Giriş/Çıkış için Paneller : İşe alım sistemi ama önce giriş yapılmalı çünkü sadece İnsan Kaynakları ve Yönetim departmanı yapabilir, Şifre değiştirme bu klasiktir zaten Mail gönderilir ve yeni şifre yazılır Oturum Açma/Kapama bu işlemler yapılmadan diğer paneller görüntülenemez
 7.Genel Bakış Paneli : Burada sadece mevcut personeller ve durumları gösterilir : Aktif,Pasif,İbra Sürecinde,İstifa Sürecinde
 8.Mesaj Servisi : Bu bir panel değil ama çlışma mantığını açıklamak istedim mesaj gönderme özel olarak yazılarak değil işlem yapıldığı zaman gerekli kişi yada departmana gönderilerek çalışır ve eğer istenirse mesaj okundu olarak yada direkt silinebilir.
-
-Not : "Docker yüklü olması yeterli, docker-compose up yazın çalışsın"
